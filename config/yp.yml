@@ -9,6 +9,11 @@ unlogin_link:
   type: :xpath
   locator: "//a[text()='Выход']"
 
+base:
+  link_to_mainpage:
+    type: :xpath
+    locator: "//div[contains(@class, 'firm-path')]/a[1]"
+
 create_company:
   name:
     type: :id

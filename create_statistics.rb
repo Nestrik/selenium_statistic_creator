@@ -15,13 +15,25 @@ ST_CONFIG = YAML.load_file("config/#{project}#{stand}.yml")
 
 #browser-initializing
 @driver = Selenium::WebDriver.for(:chrome)
+@driver.manage.window.maximize
 @driver.navigate.to ST_CONFIG['auth_link']
 @wait = Selenium::WebDriver::Wait.new(:timeout => 5)
 
+rand = Random.new.rand(1000..9999)
+
 #создаем компанию и получаем линк
 comp = CompanyCreator.new @driver
-comp.create_company
-@driver.find_element(:link, 'Главная').click
+comp_name = 'Default company name ' + rand.to_s
+comp.create_company comp_name
+
+#добавляем куку избавляющую от всплывающих окон
+if project.eql? 'bz'
+  company_id = @driver.find_element(:css, '.left-column .gray').text.split(' ')[1]
+  @driver.manage.add_cookie(:name => 'hpHidden' + company_id, :value => '1')
+  @driver.navigate.refresh
+end
+
+@driver.find_element(CONFIG['base']['link_to_mainpage']['type'], CONFIG['base']['link_to_mainpage']['locator']).click
 company_link = @driver.current_url
 if company_link[-1].eql? '/'
   company_link = company_link[0...-1]
