@@ -40,7 +40,7 @@ links = []
 if pages.eql? 'false'
   #do nothing
 else
-  page_creator = PageCreator.new(@driver, company_link, @wait)
+  page_creator = PageCreator.new(@driver, company_link)
   page_creator.create_newpage
   links << @driver.current_url
   page_creator.create_offer

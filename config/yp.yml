@@ -1,13 +1,13 @@
-create_company_link: '/company_wizard/new'
-create_product_link: '/products/new'
-catalog: '/tovary'
+create_company_link: '/firms/new'
+create_product_link: '/buy/new'
+catalog: '/offers'
 catalog_p: '/products/'
 
-rubric: 'блокноты, ежедневники'
+rubric: 'Летние платья'
 
 unlogin_link:
   type: :xpath
-  locator: "//a[text()='Выйти']"
+  locator: "//a[text()='Выход']"
 
 create_company:
   name:
@@ -15,7 +15,7 @@ create_company:
     locator: 'company_name'
   type:
     type: :id
-    locator: 'apress_company_abouts_company_about_announce'
+    locator: 'search-str'
   code:
     type: :id
     locator: 'address_phones_attributes_0_code'
@@ -23,8 +23,8 @@ create_company:
     type: :id
     locator: 'address_phones_attributes_0_number'
   submit:
-    type: :css
-    locator: '.js-terms-needed-for-registration'
+    type: :name
+    locator: 'commit'
 create_product:
   name:
     type: :id
@@ -36,8 +36,8 @@ create_product:
     type: :css
     locator: '.js-button-rubric-search'
   rubric:
-    type: :css
-    locator: '.js-src-link'
+    type: :xpath
+    locator: "//a[text()='Летние платья']"
   submit:
     type: :name
     locator: 'commit'

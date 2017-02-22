@@ -41,3 +41,6 @@ create_product:
   submit:
     type: :css
     locator: '.js-uf-sbm-add-product'
+page_creator_submit_button:
+  type: :css
+  locator: '.original-button'

@@ -1,8 +1,7 @@
 class PageCreator
-  def initialize(driver, company_link, wait)
+  def initialize(driver, company_link)
     @driver = driver
     @base_company_link = company_link
-    @wait = wait
     rand = Random.new.rand(10..99)
   end
 
@@ -18,7 +17,7 @@ class PageCreator
   def create_newpage
     @driver.navigate.to (@base_company_link + '/pages/new')
     @driver.find_element(:css, '.js-field-title').send_keys('Test page: ' + rand.to_s)
-    @driver.find_element(:css, '.original-button').click
+    @driver.find_element(CONFIG['page_creator_submit_button']['type'], CONFIG['page_creator_submit_button']['locator']).click
   end
 
   def create_offer
