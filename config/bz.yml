@@ -1,0 +1,43 @@
+create_company_link: '/company_wizard/new'
+create_product_link: '/products/new'
+catalog: '/tovary'
+catalog_p: '/products/'
+
+rubric: 'блокноты, ежедневники'
+
+unlogin_link:
+  type: :xpath
+  locator: "//a[text()='Выйти']"
+
+create_company:
+  name:
+    type: :id
+    locator: 'company_name'
+  type:
+    type: :id
+    locator: 'apress_company_abouts_company_about_announce'
+  code:
+    type: :id
+    locator: 'address_phones_attributes_0_code'
+  number:
+    type: :id
+    locator: 'address_phones_attributes_0_number'
+  submit:
+    type: :css
+    locator: '.js-terms-needed-for-registration'
+create_product:
+  name:
+    type: :id
+    locator: 'product_name'
+  rubric_search:
+    type: :css
+    locator: '.js-input-rubric-search'
+  rubric_search_submit:
+    type: :css
+    locator: '.js-button-rubric-search'
+  rubric:
+    type: :css
+    locator: '.js-src-link'
+  submit:
+    type: :name
+    locator: 'commit'

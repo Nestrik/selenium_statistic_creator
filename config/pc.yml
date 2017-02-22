@@ -1,0 +1,43 @@
+create_company_link: '/firms/new'
+create_product_link: '/goods/new'
+catalog: '/catalog'
+catalog_p: '/products/'
+
+rubric: 'труба бесшовная'
+
+unlogin_link:
+  type: :css
+  locator: 'js-toolbar-link-exit'
+
+create_company:
+  name:
+    type: :css
+    locator: '.js-text-field-comp-name'
+  type:
+    type: :css
+    locator: '.js-text-field-announce'
+  code:
+    type: :css
+    locator: '.js-text-field-phone-code-'
+  number:
+    type: :css
+    locator: '.js-text-field-phone-number-'
+  submit:
+    type: :css
+    locator: '.js-reg-company-button'
+create_product:
+  name:
+    type: :css
+    locator: '.js-product-name'
+  rubric_search:
+    type: :css
+    locator: '.js-input-rubric-search'
+  rubric_search_submit:
+    type: :css
+    locator: '.js-button-rubric-search'
+  rubric:
+    type: :css
+    locator: '.js-src-link'
+  submit:
+    type: :css
+    locator: '.js-uf-sbm-add-product'
